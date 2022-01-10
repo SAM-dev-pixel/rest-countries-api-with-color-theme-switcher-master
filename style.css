@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bg-lighter: hsl(209, 23%, 22%);
+  --bg-light: hsl(207, 26%, 17%);
+  --very-dark-blue-light-mod-txt: hsl(200, 15%, 8%);
+  --dark-gray-light-mod-input: hsl(0, 0%, 52%);
+  --very-light-gray-light-mod-bg: hsl(0, 0%, 98%);
+  --txt-lighter: hsl(0, 0%, 100%);
+}
+
+.lightmode {
+  --bg-light: hsl(0, 0%, 98%);
+  --bg-lighter: hsl(0, 0%, 98.7%);
+  --txt-lighter: hsl(200, 15%, 8%);
+}
+
+html { font-size: 100%; }
+body { 
+  font-family: 'Nunito Sans', sans-serif;
+}
+#header {
+  max-width: 1440px;
+  margin: auto;
+  min-height: 4.125em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1em;
+  background: var(--bg-lighter);
+  filter: drop-shadow(0 .3rem 0.4rem rgba(0,0,0,.1));
+}
+.header-title {
+  font-size: .86rem;
+  font-weight: 700;
+  color: var(--txt-lighter);
+}
+.theme-mode-btn {
+  display: flex;
+  align-items: center;
+  gap: .5em;
+  color: var(--txt-lighter);
+}
+.icon-moon {
+  font-size: .86rem;
+}
+.mode-txt {
+  font-size: .75rem;
+  font-weight: 600;
+}
+
+#container-main {
+  max-width: 1440px;
+  margin: auto;
+  padding: 1.4em 1em;
+  background: var(--bg-light);
+}
+
+.search-country-container { margin-bottom: 2.4em; }
+.search-box {
+  height: max-content;
+  display: flex;
+  align-items: center;
+  gap: 1.45em;
+  padding: .87em 1.92em;
+  background: var(--bg-lighter);
+  border-radius: .5rem;
+  box-shadow: 0 0 .5rem rgba(0,0,0,.1);
+}
+.icon-search {
+  color: var(--txt-lighter);
+}
+.search-input {
+  font-size: .75rem;
+  font-weight: 400;
+  font-family: 'Nunito Sans', sans-serif;
+  color: var(--txt-lighter);
+  background: none;
+  border: none;
+  outline: none;
+}
+.search-input::placeholder { color: var(--txt-lighter); }
+.dropdown-region {
+  width: 12em;
+  margin-top: 2em;
+  z-index: 9;
+}
+.dropdown-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .86em 1.92em;
+  border-radius: .5rem;
+  background: var(--bg-lighter);
+  margin-bottom: .3rem;
+  position: relative;
+  z-index: 99;
+  box-shadow: -.2rem .3rem .5rem rgba(0,0,0,.1);
+}
+.dropdown-head i.down {
+  transition: .2s;
+  transform: rotate(180deg);
+}
+.dropdown-body {
+  width: 100%;
+  padding: .86em 1.92em;
+  border-radius: .5rem;
+  background: var(--bg-lighter);
+  transition: .2s;
+  margin-top: -3rem;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 0 .5rem rgba(0,0,0,.1);
+}
+.dropdown-body.show {
+  margin-top: 0;
+  height: max-content;
+  opacity: 1;
+  pointer-events: all;
+}
+.dropdown-body p:not(:last-child) {
+  margin-bottom: .75em;
+}
+.dropdown-region p,
+.dropdown-region i {
+  font-size: .75rem;
+  color: var(--txt-lighter);
+  font-weight: 300;
+}
+@media (min-width: 48em) {
+  html { font-size: 120%; } 
+  #header { padding: 0 5em; }
+  #container-main {
+    padding: 3em 5em;
+  }
+  .search-box { width: 35%; }
+  .dropdown-region { margin: 0; }
+  .search-country-container {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  }
+}
+
+.list-countries-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+  list-style: none;
+}
+.list-country {
+  width: 70vw;
+  border-radius: .3rem;
+  display: inline-block;
+  color: var(--txt-lighter);
+  background: var(--bg-lighter);
+  text-decoration: none;
+  overflow: hidden;
+  cursor: none;
+  transition: .3s;
+  box-shadow: 0 0 .5rem rgba(0,0,0,.1);
+}
+.list-country:hover {
+  transform: scale(1.08);
+}
+.flag-head img { 
+  width: 100%;
+  height: 27vh;
+}
+.concise-body { padding: 1em; }
+.country-name { font-size: 1rem; }
+.list-country h3 { 
+  font-size: .75rem; 
+  font-weight: 600;
+  margin-bottom: .5em;
+}
+.list-country span { font-weight: 300; }
+.error-txt {
+  color: var(--txt-lighter);
+  font-size: 1.25rem;
+  font-weight: 600 !important;
+  margin: 2em 0;
+}
+@media (min-width: 48em) {
+  .list-countries-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .icon-search,
+  .theme-mode-btn,
+  .dropdown-head,
+  .region,
+  .list-country { cursor: pointer; }
+  
+  .list-country {
+    width: 14em;
+  }
+  .flag-head img {
+    height: 8.6rem;
+  }
+}
+
+
+
+/* === styles for detail page === */
+
+.dt #container-main { padding: 1.4em 1.5em; }
+.back-btn {
+  width: max-content;
+  color: var(--txt-lighter);
+  font-size: .78rem;
+  display: flex;
+  align-items: center;
+  gap: .75em;
+  padding: .6em 1.5em;
+  margin-bottom: 3rem;
+  text-decoration: none;
+  background: var(--bg-lighter);
+  box-shadow: 0 0 2px 3px rgba(0,0,0,.1);
+  border-radius: .3rem;
+}
+.back-btn i { font-size: 1rem; }
+.hero-flag img {
+  width: 100%;
+  height: 38vh;
+}
+.left-part { margin-bottom: 2.5rem; }
+.dt .country-name {
+  font-size: 1.44rem;
+  color: var(--txt-lighter);
+  font-weight: 800;
+  margin: 1.5em 0 .76em 0;
+}
+.dt h3 {
+  font-size: .78rem;
+  color: var(--txt-lighter);
+  font-weight: 600;
+  margin-bottom: .92em;
+}
+.dt h3 span { font-weight: 300; }
+.dt h4 {
+  font-size: .82rem;
+  color: var(--txt-lighter);
+  font-weight: 600;
+  margin-bottom: .3rem;
+}
+.border-countries-container { margin: 2.5rem 0; }
+.dt .border {
+  display: inline-block;
+  margin: .68em .68em 0 0;
+  color: var(--txt-lighter);
+  font-size: .75rem;
+  padding: .4em 1.25em;
+  text-decoration: none;
+  background: var(--bg-lighter);
+  box-shadow: 0 0 2px 3px rgba(0, 0, 0, .1);
+  border-radius: .3rem;
+}
+
+@media (min-width: 48em) {
+  .dt #container-main { /*padding: 1.4em 2.25em 12em 2.25em;*/ padding: 3em 5em; }
+  .detail-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hero-flag { 
+    width: 45%;
+    }
+  .dt .hero-flag img {
+    width: 100%;
+    min-height: 18rem;
+  }
+  .detail-body { width: 45%; }
+  .dt .country-name { margin-top: 0; }
+  .part-contain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .left-part { margin: 0; }
+  .border-countries-container { margin: 1.25rem 0 0 0; }
+}
