@@ -277,7 +277,7 @@ body {
     }
   .dt .hero-flag img {
     width: 100%;
-    min-height: 18rem;
+    height: 18rem;
   }
   .detail-body { width: 45%; }
   .dt .country-name { margin-top: 0; }
