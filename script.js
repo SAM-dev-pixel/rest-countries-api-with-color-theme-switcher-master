@@ -153,16 +153,7 @@ function listCountry(country) {
          
 }
 
-/*function getCountries() {
-  
-  const countries = document.querySelectorAll('.list-country');
-  console.log('cc', countries[0]);
-  
-  return new Promise(result, reject) {
-    
-  }
-  
-}*/
+
 
 
 
